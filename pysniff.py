@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# PySniff v0.4
+#!/usr/bin/env python3
+# PySniff v1.0
 # SYZYGY-DEV333
 # Packet Sniffing tool written in Python
 # Apache Version 2
@@ -77,29 +77,6 @@ while True:
             print 'Source Port : ' + str(source_port) + ' Dest Port : ' + str(dest_port) + ' Sequence Number : ' + str(sequence) + ' Acknowledgement : ' + str(acknowledgement) + ' TCP header length : ' + str(tcph_length)
             
             h_size = eth_length + iph_length + tcph_length * 4
-            data_size = len(packet) - h_size
-            
-            # get data from the packet
-            data = packet[h_size:]
-            
-            print 'Data : ' + data
-            
-        # ICMP Packets
-        elif protocol == 1 :
-            u = iph_length + eth_length
-            icmph_length = 8
-            icmp_header = packet[u:u+8]
-            
-            # now unpack them :)
-            icmph = unpack('!BBH' , icmp_header)
-            
-            icmp_type = icmph[0]
-            code = icmph[1]
-            checksum = icmph[2]
-            
-            print 'Type : ' + str(icmp_type) + ' Code : ' + str(code) + ' Checksum : ' + str(checksum)
-            
-            h_size = eth_length + iph_length + icmph_length
             data_size = len(packet) - h_size
             
             # get data from the packet
