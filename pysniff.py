@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-
-# PySniff
-# packet sniffer in python
-# sniffs all incoming  and outgoing packets
-# Linux only as of now
-# Created by SYZYGY-DEV333
+# PySniff v0.4
+# SYZYGY-DEV333
+# Packet Sniffing tool written in Python
+# Apache Version 2
 
 import socket, sys
 from struct import *
