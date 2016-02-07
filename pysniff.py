@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # PySniff v1.0
 # SYZYGY-DEV333
 # Packet Sniffing tool written in Python
