@@ -16,7 +16,7 @@ def eth_addr (a) :
     return b
 
 # create a AF_PACKET type raw socket (basically packet level)
-# define ETH_P_ALL    0x0003        /* Every packet, be careful! */
+# define ETH_P_ALL    0x0003        Every packet, be careful!
 try:
     s = socket.socket( socket.AF_PACKET , socket.SOCK_RAW , socket.ntohs(0x0003))
 except socket.error , msg:
@@ -44,7 +44,7 @@ while True:
         # take first 20 characters for ip header
         ip_header = packet[eth_length:20+eth_length]
         
-        # now unpack them :)
+        # now unpack them
         iph = unpack('!BBHHHBBH4s4s' , ip_header)
         
         version_ihl = iph[0]
@@ -65,7 +65,7 @@ while True:
             t = iph_length + eth_length
             tcp_header = packet[t:t+20]
             
-            # now unpack them :)
+            # now unpack them
             tcph = unpack('!HHLLBBHHH' , tcp_header)
             
             source_port = tcph[0]
@@ -91,7 +91,7 @@ while True:
             udph_length = 8
             udp_header = packet[u:u+8]
             
-            # now unpack them :)
+            # now unpack them
             udph = unpack('!HHHH' , udp_header)
             
             source_port = udph[0]
